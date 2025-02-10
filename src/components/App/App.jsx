@@ -1,28 +1,65 @@
-import { useState } from 'react'
-import './App.css'
-import Campers from '../Campers/Campers'
+// import { fetchCampersWithTopic } from '../../campers-api'
+import './App.module.css'
+import { Routes, Route } from 'react-router-dom'
+import HomePage from '../../pages/HomePage/HomePage'
+import CampersList from '../CampersList/CampersList'
+// import { useState, useEffect } from 'react'
 
-function App() {
-  const handleClick = () => {
-    alert("I'm button");
-  }
-  const [clicks, setClicks] = useState(0);
-  const handClick = () => {
-    setClicks(clicks + 2);
-  }
+
+export default function App() {
+  // const [campers, setCampers] = useState([]);
+  // const [loading, setLoading] = useState(false);
+  // const [error, setError] = useState(false);
+
+  // useEffect(() => {
+  //   async function fetchCampers() {
+  //     try {
+  //       setLoading(true);
+  //       const data = await fetchCampersWithTopic('react');
+  //       setCampers(data);
+  //     } catch (error) {
+  //       setError(true);
+  //       console.log(error);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   }
+  //   fetchCampers()
+  // }, []);
+ 
+  // const handleSearch = async (topic) => {
+  //   try {
+  //     setCampers([]);
+  //     setError(false);
+  //     setLoading(true);
+  //     const data = await fetchCampersWithTopic(topic);
+  //     setCampers(data);
+  //   } catch (error) {
+  //     setError(true);
+  //     console.log(error);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // }
 
   return (
-    <>
-      <h1>Campers of your dreams</h1>
-      <p>You can find everything you want in our catalog</p>
-      <Campers />
-      
-      <button onClick={handleClick}>View now</button>
-      <button onClick={handClick}>Click me: {clicks }</button>
+    <div>
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/campers' element={ <CampersList /> } />
+        
+      </Routes>
+     
 
+      
+      {/* <SearchBar onSearch={handleSearch}/> */}
+
+      {/* {loading && <p>Loading data, please wait...</p>}
+      {error && (
+        <p>Whoops, something went wrong! Please try reloading this page!</p>
+      )}
+      {campers.length > 0 && <CampersList items={campers}/>} */}
        
-    </>
+    </div>
   )
 }
-
-export default App

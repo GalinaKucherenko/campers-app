@@ -1,0 +1,5 @@
+.homePage {
+    min-height: 696px;
+    background-image: url(../../img/homepage.png);
+    background-size: cover;
+}
